@@ -19,7 +19,7 @@ HAS_WGET = $(shell /bin/which wget > /dev/null 2>&1 && echo y || echo n)
 HAS_CURL = $(shell /bin/which curl > /dev/null 2>&1 && echo y || echo n)
 
 # Update this to test a single feature from the most recent header we require:
-CHECK_CXL_HEADER_IS_UP_TO_DATE = $(shell /bin/echo -e \\\#include $(1)\\\nint i = CXL_START_WORK_TID\; | \
+CHECK_CXL_HEADER_IS_UP_TO_DATE = $(shell /bin/echo -e \#include $(1)\\\nint i = CXL_START_WORK_TID\; | \
                  $(CC) $(CFLAGS) -Werror -x c -S -o /dev/null - >/dev/null 2>&1 && echo y || echo n)
 
 check_cxl_header:
